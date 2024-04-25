@@ -1,185 +1,89 @@
 import 'package:flutter/material.dart';
-
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
-
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Pertama',
-
+      title: 'Flutter kedua',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
+        useMaterial3: true,
+      ),
       home: MyHomePage(),
     );
   }
 }
-
 class MyHomePage extends StatefulWidget {
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
-
 class _MyHomePageState extends State<MyHomePage> {
+  TextEditingController isi = TextEditingController();
+  TextEditingController hasil = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        title: Text('Flutter Pertama'),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text('Flutter kedua'),
       ),
-      body: Center(
+      body: Padding(
+        padding: EdgeInsets.all(15),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             Container(
-              width: 500,
-              height: 100,
-              alignment: Alignment.bottomCenter,
-              padding: EdgeInsets.all(35),
-              margin: EdgeInsets.symmetric(vertical: 20),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.blue, width: 4),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Text(
-                'Ketika kamu',
-                style: TextStyle(
-                  color: Colors.purple,
-                  backgroundColor: Colors.amber,
+              padding: EdgeInsets.all(10),
+              margin: EdgeInsets.all(10),
+              child:TextField(
+                controller: isi,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Isi Nama',
+                    hintText: 'Ali Topan'
                 ),
               ),
             ),
+
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment:MainAxisAlignment.center,
               children: [
                 Container(
-                  width: 150,
-                  height: 70,
-                  alignment: Alignment.bottomCenter,
-                  padding: EdgeInsets.all(5),
-                  margin: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.blue, width: 4),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'berusaha maksimal',
-                      style: TextStyle(
-                        color: Colors.purple,
-                        backgroundColor: Colors.amber,
-                      )
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 150,
-                  height: 70,
-                  alignment: Alignment.bottomCenter,
-                  padding: EdgeInsets.all(5),
-                  margin: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.blue, width: 4),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Center(
-                    child: Text(
-                        'maka akan',
-                        style: TextStyle(
-                          color: Colors.purple,
-                          backgroundColor: Colors.amber,
-                        )
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 150,
-                  height: 70,
-                  alignment: Alignment.bottomCenter,
-                  padding: EdgeInsets.all(5),
-                  margin: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.blue, width: 4),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'maju kedepan',
-                      style: TextStyle(
-                          color: Colors.purple,
-                        backgroundColor: Colors.amber,
+                    padding: EdgeInsets.all(10),
+                    margin: EdgeInsets.all(10),
+                    child:ElevatedButton(
+                      child: Text('Tampil'),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          elevation: 0
                       ),
-                    ),
-                  ),
+                      onPressed: () {
+                        var isi1 = isi.text.toString();
+                        hasil.text= isi1.toString();
+
+                      },
+
+                    )
                 ),
               ],
             ),
+
             Container(
-              width: 500,
-              height: 100,
-              alignment: Alignment.bottomCenter,
-              padding: EdgeInsets.all(35),
-              margin: EdgeInsets.symmetric(vertical: 20),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.blue, width: 4),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Text(
-                'menuju ke sebuah',
-                style: TextStyle(
-                  color: Colors.purple,
-                  backgroundColor: Colors.amber,
+              padding: EdgeInsets.all(10),
+              margin: EdgeInsets.all(10),
+              child:TextField(
+                controller: hasil,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Hasil',
                 ),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 150,
-                  height: 70,
-                  alignment: Alignment.bottomCenter,
-                  padding: EdgeInsets.all(15),
-                  margin: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.blue, width: 4),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Center(
-                    child: Text(
-                        'kesuksesan',
-                        style: TextStyle(
-                          color: Colors.purple,
-                          backgroundColor: Colors.amber,
-                        )
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 150,
-                  height: 70,
-                  alignment: Alignment.bottomCenter,
-                  padding: EdgeInsets.all(5),
-                  margin: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.blue, width: 4),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Center(
-                    child: Text(
-                        'yang akan menantimu',
-                        style: TextStyle(
-                          color: Colors.purple,
-                          backgroundColor: Colors.amber,
-                        )
-                    ),
-                  ),
-                ),
-              ],
-            ),
+
+
           ],
         ),
       ),
